@@ -620,6 +620,15 @@ func (rpc *FlashbotsRPC) FlashbotsSimulateBlock(privKey *ecdsa.PrivateKey, block
 			continue
 		}
 
+		to := tx.To()
+		txIsToCoinbase := to != nil && *to == block.Coinbase()
+		if txIsToCoinbase {
+			if rpc.Debug {
+				fmt.Printf("- skip tx to coinbase: %s\n", tx.Hash())
+			}
+			continue
+		}
+
 		rlp := TxToRlp(tx)
 
 		// Might need to strip beginning bytes
