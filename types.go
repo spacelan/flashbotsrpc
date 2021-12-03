@@ -389,7 +389,9 @@ type FlashbotsSendBundleResponse struct {
 
 // sendPrivateTransaction
 type FlashbotsSendPrivateTransactionRequest struct {
-	Tx string `json:"tx"`
+	Tx           string            `json:"tx"`
+	Auction      bool              `json:"auction"`                // (Optional) Boolean, whether this transaction opts-in to the auction
+	PaymentSplit map[string]uint64 `json:"paymentSplit,omitempty"` // (Optional) Map[String, Number], a map of addresses and integer value of their payment split percentage
 }
 
 // cancelPrivateTransaction
