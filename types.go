@@ -398,3 +398,9 @@ type FlashbotsSendPrivateTransactionRequest struct {
 type FlashbotsCancelPrivateTransactionRequest struct {
 	TxHash string `json:"txHash"`
 }
+
+// eth_sendBidForAuction
+type FlashbotsSendBidForAuctionRequest struct {
+	AuctionTxHash string `json:"auctionTxHash"`
+	BidRawTx      string `json:"bidRawTx"`
+}

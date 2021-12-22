@@ -705,3 +705,9 @@ func (rpc *FlashbotsRPC) FlashbotsCancelPrivateTransaction(privKey *ecdsa.Privat
 	err = json.Unmarshal(rawMsg, &cancelled)
 	return cancelled, err
 }
+
+// Send a bid to the private tx auction (eth_sendBidForAuction) - result is always true
+func (rpc *FlashbotsRPC) FlashbotsSendBidForAuction(privKey *ecdsa.PrivateKey, param FlashbotsSendBidForAuctionRequest) (err error) {
+	_, err = rpc.CallWithFlashbotsSignature("eth_sendBidForAuction", privKey, param)
+	return err
+}
