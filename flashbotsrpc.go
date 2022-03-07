@@ -620,6 +620,16 @@ func (rpc *FlashbotsRPC) FlashbotsGetUserStats(privKey *ecdsa.PrivateKey, blockN
 	return res, err
 }
 
+// https://docs.flashbots.net/flashbots-auction/searchers/advanced/rpc-endpoint#flashbots_getbundlestats
+func (rpc *FlashbotsRPC) FlashbotsGetBundleStats(privKey *ecdsa.PrivateKey, param FlashbotsBundleStatsRequest) (res FlashbotsBundleStats, err error) {
+	rawMsg, err := rpc.CallWithFlashbotsSignature("flashbots_getBundleStats", privKey, param)
+	if err != nil {
+		return res, err
+	}
+	err = json.Unmarshal(rawMsg, &res)
+	return res, err
+}
+
 // https://docs.flashbots.net/flashbots-auction/searchers/advanced/rpc-endpoint#eth_callbundle
 func (rpc *FlashbotsRPC) FlashbotsCallBundle(privKey *ecdsa.PrivateKey, param FlashbotsCallBundleParam) (res FlashbotsCallBundleResponse, err error) {
 	rawMsg, err := rpc.CallWithFlashbotsSignature("eth_callBundle", privKey, param)

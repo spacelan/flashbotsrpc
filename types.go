@@ -340,6 +340,20 @@ type FlashbotsUserStats struct {
 	Last1dGasSimulated   string `json:"last_1d_gas_simulated"`
 }
 
+type FlashbotsBundleStatsRequest struct {
+	BundleHash  string `json:"bundleHash"`
+	BlockNumber string `json:"blockNumber"`
+}
+
+type FlashbotsBundleStats struct {
+	IsSimulated    bool   `json:"isSimulated"`
+	IsSentToMiners bool   `json:"isSentToMiners"`
+	IsHighPriority bool   `json:"isHighPriority"`
+	SimulatedAt    string `json:"simulatedAt"`
+	SubmittedAt    string `json:"submittedAt"`
+	SentToMinersAt string `json:"sentToMinersAt"`
+}
+
 type FlashbotsCallBundleParam struct {
 	Txs              []string `json:"txs"`                 // Array[String], A list of signed transactions to execute in an atomic bundle
 	BlockNumber      string   `json:"blockNumber"`         // String, a hex encoded block number for which this bundle is valid on
