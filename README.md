@@ -13,7 +13,7 @@ Fork of [ethrpc](https://github.com/onrik/ethrpc) with additional [Flashbots RPC
 
 Add library to your project:
 
-`go get github.com/metachris/flashbotsrpc`
+`go get github.com/spacelan/flashbotsrpc`
 
 Create a new private key here for testing (you probably want to use an existing one):
 
@@ -65,4 +65,4 @@ fmt.Printf("%+v\n", result)
 
 #### More examples
 
-You can find example code in the [`/examples/` directory](https://github.com/metachris/flashbotsrpc/tree/master/examples).
+You can find example code in the [`/examples/` directory](https://github.com/spacelan/flashbotsrpc/tree/master/examples).
